@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECL-Q42026 — IA e Ecossistemas de Negócios · 01 a 04/nov</title>
+<meta name="description" content="ECL-Q42026 — IA e Ecossistemas de Negócios. Evento online de 01 a 04 de novembro de 2026: o planejamento de 2027 para faturar R$ 5 MM/ano com 30% de NPM. Ingresso Lote 0: R$ 4,90.">
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#101a30; --card:#141f3a; --line:#24314f;
+    --txt:#e8ecf5; --mut:#9aa7c2; --gold:#d4a94e; --gold2:#f0c96a;
+    --btn:#d4a94e; --btn-txt:#1a1405;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--txt);line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h1{font-size:clamp(1.7rem,5.4vw,2.6rem);line-height:1.2;letter-spacing:-.01em}
+  h2{font-size:clamp(1.3rem,4vw,1.8rem);margin-bottom:18px;letter-spacing:-.01em}
+  h2 .kicker{display:block;font-size:.8rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+  p{color:var(--mut);margin-bottom:14px}
+  p strong,li strong{color:var(--txt)}
+  ul{list-style:none}
+  li{margin-bottom:10px;padding-left:26px;position:relative;color:var(--mut)}
+  li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+  .cta{display:inline-block;background:var(--btn);color:var(--btn-txt);font-weight:700;
+       font-size:1.05rem;padding:16px 34px;border-radius:12px;border:0;cursor:pointer;
+       text-decoration:none;text-align:center;transition:transform .08s ease,box-shadow .2s ease;
+       box-shadow:0 6px 24px rgba(212,169,78,.25)}
+  .cta:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(212,169,78,.35)}
+  .cta-block{text-align:center;margin-top:26px}
+  .cta-sub{font-size:.85rem;color:var(--mut);margin-top:10px}
+
+  /* hero */
+  .hero{padding:72px 0 60px;background:radial-gradient(1200px 500px at 50% -10%,#1a2745 0%,var(--bg) 60%)}
+  .tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:999px;
+       padding:6px 16px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+  .hero .sub{font-size:1.12rem;color:var(--txt);margin:18px 0 6px}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 6px}
+  .badge{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:.85rem;color:var(--txt)}
+  .badge b{color:var(--gold2)}
+  .preco{font-size:1.35rem;margin:18px 0 4px}
+  .preco b{color:var(--gold2);font-size:1.8rem}
+  .preco s{color:var(--mut);font-size:1rem;margin-left:8px}
+
+  /* mapa 5MM */
+  .conta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;margin-top:18px}
+  .conta .linha{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.98rem}
+  .conta .linha:last-child{border-bottom:0}
+  .conta .linha b{color:var(--gold2);white-space:nowrap}
+  .nota{font-size:.78rem;color:var(--mut);margin-top:12px}
+
+  /* dias */
+  .dias{display:grid;gap:14px;margin-top:8px}
+  .dia{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .dia .num{color:var(--gold);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+  .dia h3{font-size:1.15rem;margin:6px 0 8px}
+  .dia p{margin:0;font-size:.95rem}
+  @media(min-width:680px){.dias{grid-template-columns:1fr 1fr}}
+
+  .areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .area{border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:8px 18px;font-size:.9rem;color:var(--txt)}
+
+  .oferta{background:linear-gradient(135deg,#1a2745,#101a30);border:1px solid var(--gold);border-radius:16px;padding:26px}
+  .oferta h3{color:var(--gold2);margin-bottom:8px}
+
+  details{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px;background:var(--card)}
+  summary{cursor:pointer;font-weight:600;color:var(--txt)}
+  details p{margin:10px 0 0}
+
+  footer{padding:34px 0 60px;text-align:center;color:var(--mut);font-size:.8rem}
+
+  /* popup */
+  .overlay{position:fixed;inset:0;background:rgba(4,8,18,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+  .overlay.aberto{display:flex}
+  .modal{background:var(--bg2);border:1px solid var(--line);border-radius:18px;max-width:420px;width:100%;padding:28px;position:relative}
+  .modal h3{font-size:1.25rem;margin-bottom:6px}
+  .modal p{font-size:.9rem;margin-bottom:18px}
+  .modal label{display:block;font-size:.82rem;color:var(--mut);margin:12px 0 4px}
+  .modal input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+               padding:12px 14px;color:var(--txt);font-size:1rem}
+  .modal input:focus{outline:none;border-color:var(--gold)}
+  .modal .cta{width:100%;margin-top:20px}
+  .fechar{position:absolute;top:12px;right:14px;background:none;border:0;color:var(--mut);font-size:1.4rem;cursor:pointer}
+  .erro-form{color:#ff9d9d;font-size:.85rem;margin-top:10px;display:none}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Evento online · 01 a 04 de novembro de 2026</span>
+    <h1>ECL-Q42026<br>IA e Ecossistemas de Negócios</h1>
+    <p class="sub">O planejamento de 2027 para faturar <strong>R$ 5 milhões/ano com 30% de NPM</strong> — montado ao vivo, em 4 dias, peça por peça: apps, serviços, co-produção e expert, com IA em cada camada.</p>
+    <div class="badges">
+      <span class="badge">4 noites · <b>01–04/nov</b></span>
+      <span class="badge">100% <b>online</b></span>
+      <span class="badge">Lote 0 · <b>R$ 4,90</b></span>
+    </div>
+    <p class="preco">Ingresso: <b>R$ 4,90</b> <span style="color:var(--mut);font-size:.95rem">· Lote 0, por tempo limitado</span></p>
+    <div class="cta-block" style="text-align:left">
+      <button class="cta" data-abrir>Quero meu ingresso</button>
+      <p class="cta-sub">Você deixa nome, e-mail e WhatsApp e já cai no checkout seguro da Hotmart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGITAÇÃO -->
+<section>
+  <div class="wrap">
+    <h2><span class="kicker">O problema</span>2027 não começa em janeiro. Começa agora.</h2>
+    <p>Quem espera o ano virar para planejar passa o primeiro trimestre apagando incêndio — e só começa a executar em abril.</p>
+    <p>O ECL-Q42026 existe para o oposto: você sai de 4 noites com o <strong>planejamento de 2027 desenhado</strong> — quanto cada frente do seu ecossistema precisa gerar, em qual área, com qual operação — enquanto a maioria ainda está "fechando o ano".</p>
+  </div>
+</section>
+
+<!-- A CONTA -->
+<section>
+  <div class="wrap">
+    <h2><span class="kicker">O mapa</span>A conta que o evento inteiro persegue</h2>
+    <p>O fio condutor dos 4 dias é um número só — e o caminho até ele:</p>
+    <div class="conta">
+      <div class="linha"><span>Meta de faturamento 2027</span><b>R$ 5.000.000/ano</b></div>
+      <div class="linha"><span>Isso significa, por mês</span><b>≈ R$ 416.667/mês</b></div>
+      <div class="linha"><span>Margem líquida alvo (NPM)</span><b>30%</b></div>
+      <div class="linha"><span>Lucro líquido que essa conta paga</span><b>≈ R$ 125.000/mês</b></div>
+    </div>
+    <p class="nota">Aritmética direta da meta do evento (R$ 5 MM/ano ÷ 12 meses; 30% de NPM sobre o faturamento). O evento existe para mostrar como um ecossistema de negócios com IA sustenta essa conta na prática.</p>
+  </div>
+</section>
+
+<!-- GRADE -->
+<section>
+  <div class="wrap">
+    <h2><span class="kicker">O que acontece</span>4 dias, 4 peças do ecossistema</h2>
+    <div class="dias">
+      <div class="dia">
+        <span class="num">Dia 1 · 01/nov</span>
+        <h3>Apps — GIP e GFB</h3>
+        <p>Como aplicativos próprios viram motor de receita e de operação, com IA no centro.</p>
+      </div>
+      <div class="dia">
+        <span class="num">Dia 2 · 02/nov</span>
+        <h3>Serviços — ACS/LDS</h3>
+        <p>A frente de serviços: o que vender, como precificar e como entregar sem travar a operação.</p>
+      </div>
+      <div class="dia">
+        <span class="num">Dia 3 · 03/nov</span>
+        <h3>Co-produção — ACC</h3>
+        <p>Crescer com parceiros: o modelo de co-produção para escalar sem carregar tudo sozinho.</p>
+      </div>
+      <div class="dia">
+        <span class="num">Dia 4 · 04/nov</span>
+        <h3>Expert — Curso, Comunidade e Mentoria</h3>
+        <p>CNLAP, MNLAP e LNN: como o conhecimento vira produto — com os entregáveis do CNLAP anunciados ao vivo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section>
+  <div class="wrap">
+    <h2><span class="kicker">Em todos os dias</span>Nada de visão de um ângulo só</h2>
+    <p>Cada frente é aberta por inteiro — os 5 departamentos que decidem se a conta fecha:</p>
+    <div class="areas">
+      <span class="area">Operacional</span>
+      <span class="area">Comercial</span>
+      <span class="area">Marketing</span>
+      <span class="area">Financeiro</span>
+      <span class="area">DP / Jurídico / RH</span>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section>
+  <div class="wrap">
+    <h2><span class="kicker">Encaixe</span>Veja se o ECL é para o seu momento</h2>
+    <p style="margin-bottom:18px"><strong>Faz sentido para você se:</strong></p>
+    <ul>
+      <li>Você quer <strong>planejar 2027</strong> com meta de faturamento e margem definidas — não no "vamos ver como o ano anda".</li>
+      <li>Você quer ver <strong>IA aplicada a negócio real</strong> — apps, serviços e produtos de conhecimento — e não mais uma palestra genérica sobre IA.</li>
+      <li>Você tem (ou quer construir) mais de uma <strong>frente de receita</strong> e precisa que elas funcionem como ecossistema.</li>
+      <li>Você decide melhor vendo os <strong>números e a operação por trás</strong> — Operacional, Comercial, Marketing, Financeiro e DP/J/RH na mesa.</li>
+    </ul>
+    <p style="margin:22px 0 18px"><strong>Não é para você se:</strong></p>
+    <ul>
+      <li>Você procura promessa de resultado garantido — o evento entrega método e planejamento, não atalho.</li>
+      <li>Você quer teoria de IA sem aplicação em negócio.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- OFERTA COMUNIDADE -->
+<section>
+  <div class="wrap">
+    <div class="oferta">
+      <h3>No checkout: opção de entrar para a Comunidade — R$ 997/ano</h3>
+      <p style="margin:0">Ao garantir o ingresso de R$ 4,90, o checkout da Hotmart apresenta a opção de entrar para a Comunidade por <strong>R$ 997/ano</strong>. Os detalhes do que a Comunidade inclui são apresentados lá, direto na oferta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <h2><span class="kicker">Antes de começar</span>Últimas dúvidas</h2>
+    <details>
+      <summary>Quando e onde acontece?</summary>
+      <p>De 01 a 04 de novembro de 2026, uma noite por dia, 100% online. O acesso às sessões chega no e-mail e no WhatsApp que você deixar na inscrição.</p>
+    </details>
+    <details>
+      <summary>Quanto custa?</summary>
+      <p>O ingresso do Lote 0 custa R$ 4,90, pago uma única vez, no checkout seguro da Hotmart. No checkout há a opção adicional de entrar para a Comunidade por R$ 997/ano.</p>
+    </details>
+    <details>
+      <summary>O que eu recebo pelo ingresso?</summary>
+      <p>Acesso às 4 noites do ECL-Q42026: Apps (GIP e GFB), Serviços (ACS/LDS), Co-produção (ACC) e Expert (CNLAP, MNLAP, LNN) — cada dia atravessando Operacional, Comercial, Marketing, Financeiro e DP/J/RH, sempre com o mapa de R$ 5 MM/ano a 30% de NPM como fio condutor.</p>
+    </details>
+    <details>
+      <summary>E se eu me arrepender?</summary>
+      <p>A compra é processada pela Hotmart, e valem as condições de reembolso exibidas no próprio checkout no momento da compra.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section style="border-bottom:0">
+  <div class="wrap" style="text-align:center">
+    <h2>2027 vai chegar. Com planejamento ou sem.</h2>
+    <p>Você pode começar janeiro esperando que dessa vez seja diferente — ou entrar no ano com a conta de R$ 5 MM aberta, peça por peça, na sua frente.</p>
+    <p class="preco" style="text-align:center">Ingresso Lote 0: <b>R$ 4,90</b></p>
+    <div class="cta-block">
+      <button class="cta" data-abrir>Quero meu ingresso</button>
+      <p class="cta-sub">01 a 04/nov · online · checkout seguro Hotmart</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>ECL-Q42026 — IA e Ecossistemas de Negócios · IMC Gestão Empresarial LTDA</p>
+    <p>Pagamento processado pela Hotmart. Este site não pede dados de pagamento.</p>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mtitulo">
+  <div class="modal">
+    <button class="fechar" id="fechar" aria-label="Fechar">×</button>
+    <h3 id="mtitulo">Garanta seu lugar no Lote 0</h3>
+    <p>Deixe seus dados para receber o acesso às sessões — e finalize o ingresso de R$ 4,90 no checkout da Hotmart.</p>
+    <!-- TODO-captura: o POST abaixo aponta para um endpoint de captura de lead que AINDA NÃO EXISTE.
+         O GRL (grl.lodedi.com) não tem endpoint público de captura (verificado em 07/10/2026).
+         Enquanto o endpoint não existir, o envio falha em silêncio controlado e o usuário segue
+         para o checkout com os dados preenchidos — o lead não é perdido, mas NÃO fica salvo em
+         nenhuma base nossa. Criar /api/lead (ou ligar ao GRL) é pendência declarada. -->
+    <form id="form-lead" novalidate>
+      <label for="nome">Nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com">
+      <label for="whats">WhatsApp</label>
+      <input id="whats" name="whats" type="tel" autocomplete="tel" required placeholder="(11) 99999-9999">
+      <button class="cta" type="submit">Ir para o checkout</button>
+      <p class="erro-form" id="erro-form">Preencha nome, e-mail válido e WhatsApp.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CHECKOUT = "https://pay.hotmart.com/V107926344J";
+  /* TODO-captura: endpoint de captura de lead inexistente (ver comentário no form acima). */
+  var ENDPOINT_CAPTURA = "/api/lead"; /* TODO-captura */
+
+  var overlay = document.getElementById("overlay");
+  var form = document.getElementById("form-lead");
+  var erro = document.getElementById("erro-form");
+
+  document.querySelectorAll("[data-abrir]").forEach(function(b){
+    b.addEventListener("click", function(){ overlay.classList.add("aberto"); });
+  });
+  document.getElementById("fechar").addEventListener("click", function(){ overlay.classList.remove("aberto"); });
+  overlay.addEventListener("click", function(e){ if(e.target === overlay) overlay.classList.remove("aberto"); });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var nome = form.nome.value.trim();
+    var email = form.email.value.trim();
+    var whats = form.whats.value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!nome || !emailOk || whats.replace(/\D/g,"").length < 10){
+      erro.style.display = "block";
+      return;
+    }
+    erro.style.display = "none";
+
+    var lead = { nome: nome, email: email, whatsapp: whats, origem: "ecl-01-convite", quando: new Date().toISOString() };
+
+    /* Cópia local do lead neste aparelho: garantia de que nada some calado
+       enquanto o ENDPOINT_CAPTURA não existir. */
+    try{
+      var k = "ecl-leads";
+      var lst = JSON.parse(localStorage.getItem(k) || "[]");
+      lst.push(lead);
+      localStorage.setItem(k, JSON.stringify(lst));
+    }catch(_){}
+
+    /* Melhor esforço de captura; falha não bloqueia o usuário. */
+    try{
+      fetch(ENDPOINT_CAPTURA, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(lead),
+        keepalive: true
+      }).catch(function(){});
+    }catch(_){}
+
+    /* Redireciona ao checkout com os dados preenchidos (prefill Hotmart). */
+    var q = new URLSearchParams({ name: nome, email: email, phonenumber: whats });
+    window.location.href = CHECKOUT + "?" + q.toString();
+  });
+})();
+</script>
+</body>
+</html>
